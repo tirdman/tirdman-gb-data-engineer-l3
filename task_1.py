@@ -21,7 +21,6 @@ def salary_calc(hours, rate, bonus):
     :return: возвращает расчитанную заработанную плату
     """
     try:
-
         if float(hours) < 0 or float(rate) < 0 or float(bonus) < 0:
             print('Все введенные значения не должны быть отрицательными')
             return

@@ -19,7 +19,7 @@ def fact(n):
     :return: возвращает генератор, который на каждой итерации возвращает кортеж со следубщим числом и его факториалом
     """
     fact_val = 1
-    for num in range(1, n+1):
+    for num in range(1, n + 1):
         fact_val *= num
         yield num, fact_val
 
