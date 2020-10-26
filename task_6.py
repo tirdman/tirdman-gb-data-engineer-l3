@@ -12,3 +12,50 @@
 Во втором также необходимо предусмотреть условие,
 при котором повторение элементов списка будет прекращено.
 """
+
+from itertools import count, cycle
+
+
+def count_from(from_num, to=100):
+    """
+    Генератор чисел
+    :param from_num: начальное значение генератора
+    :param to: конечное значение итератора. по умолчанию 100
+    :return: возвращает генератор целых чисел заданного диапазона
+    """
+    if to <= from_num:
+        print(f'Конечное число {to} (По умолчанию 100) должно быть больше начального {from_num}. ')
+        return
+
+    for num in count(from_num):
+        if num > to:
+            break
+        yield num
+
+
+def repeat_list(seq_list, to=5):
+    """
+    Генератор значений
+    :param seq_list: заданный список значений, которые будут перебираться
+    :param to: количество значений, которые будут возвращены
+    :return: возвращает генератор значений
+    """
+    if to < 1:
+        print(f'Параметр количества итераций ({to}) должно быть больше 0. По умолчанию 5')
+        return
+
+    iter_count = 0
+    for num in cycle(seq_list):
+        if iter_count >= to:
+            break
+        iter_count += 1
+        yield num
+
+
+for num in count_from(95):
+    print(num)
+
+print()
+
+for ch in repeat_list(['R', 'T', 'K']):
+    print(ch)
